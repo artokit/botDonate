@@ -7,7 +7,7 @@ from aiogram.fsm.state import StatesGroup, State
 from aiogram.types import Message, CallbackQuery, Video, PhotoSize
 from aiogram.types import ReplyKeyboardRemove
 import keyboards
-import db_api
+from database import db_api
 from translate_texts.translate import translate_text as _
 
 router = Router()
@@ -67,7 +67,8 @@ async def check_channels(call: CallbackQuery):
 
 
 @router.callback_query(F.data == 'back')
-async def back(call: CallbackQuery):
+async def back(call: CallbackQuery, state: FSMContext):
+    await state.clear()
     await call.message.delete()
     await hi_admin(call.message)
 

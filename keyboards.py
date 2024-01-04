@@ -1,27 +1,81 @@
 import math
 from typing import Optional
-from aiogram.types import KeyboardButtonRequestChat
+from aiogram.types import KeyboardButtonRequestChat, KeyboardButtonRequestUser
 from aiogram.utils.keyboard import (InlineKeyboardBuilder, InlineKeyboardButton, ReplyKeyboardBuilder, KeyboardButton,
                                     InlineKeyboardMarkup, ReplyKeyboardMarkup)
-import db_api
-from db_models import Channel
+from config import ADMINS
+from database import db_api
+from database.db_models import Channel, InviteCode
+from payments.cryptomus.cryptomus_api import ALLOWED_CRYPTOCURRENCIES
 from translate_texts.translate import translate_text as _
 
 
 async def get_admins(user_id: int) -> InlineKeyboardMarkup:
     admins = InlineKeyboardBuilder()
-    admins.row(
+    buttons = [
         InlineKeyboardButton(text=await _('📕Посмотреть доступные каналы📕', user_id),
                              callback_data='check_channels:1'),
-        InlineKeyboardButton(text=await _('💵Изменить реквизиты💵', user_id),
-                             callback_data='change_wallets'),
+        # InlineKeyboardButton(text=await _('💵Изменить реквизиты💵', user_id),
+        #                      callback_data='change_wallets'),
         InlineKeyboardButton(text=await _('📥Добавить новый канал📥', user_id),
                              callback_data='add_new_channel'),
         InlineKeyboardButton(text=await _('🌇Изменить язык🌇', user_id),
                              callback_data='update_language'),
+        InlineKeyboardButton(
+            text=await _("💰Финансы💰", user_id),
+            callback_data='finances'
+        )
+    ]
+
+    if user_id in ADMINS:
+        buttons.append(
+            InlineKeyboardButton(
+                text=await _("➕Управление пиарщиками➕", user_id),
+                callback_data='manage_pr'
+            )
+        )
+    if await db_api.check_prs(user_id):
+        buttons.append(InlineKeyboardButton(
+            text=await _('Кабинет пиарщика', user_id),
+            callback_data='cabinet_of_prs')
+        )
+
+    admins.row(
+        *buttons,
         width=1
     )
     return admins.as_markup()
+
+
+async def manage_prs(user_id: int):
+    keyboard = InlineKeyboardBuilder()
+    keyboard.row(
+        InlineKeyboardButton(
+            text=await _("➕Добавить нового пиарщика➕", user_id),
+            callback_data='add_new_pr'
+        )
+    )
+    keyboard.row(
+        InlineKeyboardButton(
+            text=await _("Получить всех пиарщиков", user_id),
+            callback_data='get_all_prs'
+        )
+    )
+    keyboard.row(
+        InlineKeyboardButton(
+            text=await _("Изменить процент пиарщика", user_id),
+            callback_data='change_pr_id'
+        )
+    )
+    keyboard.row(
+        InlineKeyboardButton(
+            text=await _("Удалить пиарщика", user_id),
+            callback_data='del_pr'
+        )
+    )
+    back_text = await _('Назад', user_id)
+    keyboard.row(InlineKeyboardButton(text=f"⬅️ {back_text}", callback_data='back'))
+    return keyboard.as_markup()
 
 
 async def get_back_to_main_menu(user_id: int) -> InlineKeyboardMarkup:
@@ -134,28 +188,100 @@ def get_button_post(channel_id: int, button_text: str, bot_username: str):
     return keyboard
 
 
+def get_currencies() -> InlineKeyboardMarkup:
+    keyboard = InlineKeyboardBuilder()
+
+    for i in ALLOWED_CRYPTOCURRENCIES:
+        keyboard.row(InlineKeyboardButton(text=i, callback_data=f'choice_currency:{i}'))
+
+    return keyboard.as_markup()
+
+
 async def get_transfer_keyboard(user_id: int, channel_id: int):
     keyboard = InlineKeyboardBuilder()
-    w = await db_api.get_wallets(user_id)
-
-    if w.yoomoney:
-        keyboard.row(InlineKeyboardButton(
-            text='💵YooMoney💵',
-            callback_data=f'pay:yoomoney:{channel_id}'
-        ), width=1)
-
-    if w.paypal:
-        keyboard.row(InlineKeyboardButton(text='💵Paypal💵', callback_data=f'pay:paypal:{channel_id}'), width=1)
-
-    if w.crypto:
-        keyboard.row(InlineKeyboardButton(text='💵Crypto💵', callback_data=f'pay:crypto:{channel_id}'), width=1)
-
+    keyboard.row(InlineKeyboardButton(
+        text='💵YooMoney💵',
+        callback_data=f'pay:yoomoney:{channel_id}'
+    ), width=1)
+    keyboard.row(InlineKeyboardButton(text='💵Paypal💵', callback_data=f'pay:paypal:{channel_id}'), width=1)
+    keyboard.row(InlineKeyboardButton(
+        text=await _('💵Криптовалюта💵', user_id),
+        callback_data=f'pay:crypto:{channel_id}'),
+        width=1
+    )
     return keyboard
 
 
-async def yoomoney_url(url: str, payment_uuid: str, user_id: int):
+async def pay_url(url: str, user_id: int):
     keyboard = InlineKeyboardBuilder()
     keyboard.row(InlineKeyboardButton(text=await _("💰Оплата💰", user_id), url=url))
-    keyboard.row(InlineKeyboardButton(text=await _("❓ Проверить оплату ❓", user_id),
-                                      callback_data=f'ycheck:{payment_uuid}'))
     return keyboard
+
+
+async def paypal_keyboard(url: str, user_id: int, payment_uuid: str):
+    keyboard = InlineKeyboardBuilder()
+    keyboard.row(InlineKeyboardButton(text=await _("💰Оплата💰", user_id), url=url))
+    # keyboard.row(
+    #     InlineKeyboardButton(
+    #         text=await _("Проверить платёж", user_id),
+    #         callback_data=f'check_paypal:{payment_uuid}'
+    #     )
+    # )
+    return keyboard.as_markup()
+
+
+async def invite_user(user_id: int):
+    keyboard = ReplyKeyboardBuilder()
+    keyboard.row(KeyboardButton(
+        text=await _('Отправить пользователя', user_id),
+        request_user=KeyboardButtonRequestUser(request_id=3)),
+    )
+    return keyboard.as_markup(resize_keyboard=True)
+
+
+async def get_prs_keyboard(user_id):
+    keyboard = InlineKeyboardBuilder()
+    keyboard.row(InlineKeyboardButton(
+        text=await _('Посмотреть мои рекламные ссылки', user_id),
+        callback_data='check_urls')
+    )
+    keyboard.row(InlineKeyboardButton(
+        text=await _('Создать рекламную ссылку', user_id),
+        callback_data='create_url')
+    )
+    back_text = await _('Назад', user_id)
+    keyboard.row(InlineKeyboardButton(text=f"⬅️ {back_text}", callback_data='back'))
+    return keyboard.as_markup()
+
+
+async def pr_links_info(invites: list[InviteCode]):
+    keyboard = InlineKeyboardBuilder()
+    for invite in invites:
+        keyboard.row(
+            InlineKeyboardButton(
+                text=invite.name_of_code if invite.name_of_code else invite.code,
+                callback_data=f'info_code:{invite.code}'
+            )
+        )
+
+    back_text = await _('Назад', invites[0].pr_id)
+    keyboard.row(InlineKeyboardButton(text=f"⬅️ {back_text}", callback_data='back'))
+    return keyboard.as_markup()
+
+
+async def info_url_keyboard(code: str, user_id: int):
+    keyboard = InlineKeyboardBuilder()
+    change_name_code = await _("Изменить название кода", user_id)
+    keyboard.row(InlineKeyboardButton(text=change_name_code, callback_data=f"change_name_code:{code}"))
+    back_text = await _('Назад', user_id)
+    keyboard.row(InlineKeyboardButton(text=f"⬅️ {back_text}", callback_data='check_urls'))
+    return keyboard.as_markup()
+
+
+async def request_pay(user_id: int):
+    keyboard = InlineKeyboardBuilder()
+    yoomoney = await _("Вывод YooMoney", user_id)
+    crypto = await _("Вывод Cryptomus", user_id)
+    keyboard.row(InlineKeyboardButton(text=yoomoney, callback_data="salary:yoomoney"))
+    keyboard.row(InlineKeyboardButton(text=crypto, callback_data="salary:crypto"))
+    return keyboard.as_markup()

@@ -1,0 +1,22 @@
+[2023-12-24 04:09:51,693] | INFO | Start polling
+[2023-12-24 04:09:51,908] | INFO | Run polling for bot @test_cryptomus_bot id=6584610254 - 'werfeqfcqefqe'
+[2023-12-24 04:09:56,080] | ERROR | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2023-12-24 04:09:56,081] | WARNING | Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 6584610254)
+[2023-12-24 04:10:01,628] | ERROR | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2023-12-24 04:10:01,629] | WARNING | Sleep for 1.271591 seconds and try again... (tryings = 1, bot id = 6584610254)
+[2023-12-24 04:10:07,767] | ERROR | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2023-12-24 04:10:07,767] | WARNING | Sleep for 1.825569 seconds and try again... (tryings = 2, bot id = 6584610254)
+[2023-12-24 04:10:14,907] | ERROR | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2023-12-24 04:10:14,908] | WARNING | Sleep for 2.428921 seconds and try again... (tryings = 3, bot id = 6584610254)
+[2023-12-24 04:10:17,403] | ERROR | Failed to fetch updates - TelegramRetryAfter: Telegram server says - Flood control exceeded on method 'GetUpdates'. Retry in 5 seconds.
+Original description: Too Many Requests: retry after 5
+(background on this error at: https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this)
+[2023-12-24 04:10:17,403] | WARNING | Sleep for 3.041201 seconds and try again... (tryings = 4, bot id = 6584610254)
+[2023-12-24 04:10:20,521] | ERROR | Failed to fetch updates - TelegramRetryAfter: Telegram server says - Flood control exceeded on method 'GetUpdates'. Retry in 5 seconds.
+Original description: Too Many Requests: retry after 5
+(background on this error at: https://core.telegram.org/bots/faq#my-bot-is-hitting-limits-how-do-i-avoid-this)
+[2023-12-24 04:10:20,521] | WARNING | Sleep for 3.901455 seconds and try again... (tryings = 5, bot id = 6584610254)
+[2023-12-24 04:10:24,490] | ERROR | Failed to fetch updates - TelegramServerError: Telegram server says - Bad Gateway
+[2023-12-24 04:10:24,491] | WARNING | Sleep for 5.053432 seconds and try again... (tryings = 6, bot id = 6584610254)
+[2023-12-24 04:11:01,749] | ERROR | Failed to fetch updates - TelegramConflictError: Telegram server says - Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+[2023-12-24 04:11:01,750] | WARNING | Sleep for 5.156273 seconds and try again... (tryings = 7, bot id = 6584610254)

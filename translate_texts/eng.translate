@@ -1,7 +1,3 @@
-Details not provided😢
---------------------------------------------------
-🧾Your details🧾
---------------------------------------------------
 📕View available channels📕
 --------------------------------------------------
 💵Change details💵
@@ -9,6 +5,22 @@ Details not provided😢
 📥Add a new channel📥
 --------------------------------------------------
 🌇Change language🌇
+--------------------------------------------------
+💰Finance💰
+--------------------------------------------------
+➕PR Management➕
+--------------------------------------------------
+PR office
+--------------------------------------------------
+➕Add a new PR person➕
+--------------------------------------------------
+Get all PR people
+--------------------------------------------------
+Change PR percentage
+--------------------------------------------------
+Remove PR person
+--------------------------------------------------
+Back
 --------------------------------------------------
 Back
 --------------------------------------------------
@@ -30,13 +42,35 @@ Back
 --------------------------------------------------
 ⬅️ Back
 --------------------------------------------------
+💵Cryptocurrency💵
+--------------------------------------------------
 💰Payment💰
 --------------------------------------------------
-❓ Check payment ❓
+💰Payment💰
 --------------------------------------------------
-Your payment has been confirmed!
+Check payment
 --------------------------------------------------
-We still haven't received your payment :(
+Send user
+--------------------------------------------------
+View my advertising links
+--------------------------------------------------
+Create advertising link
+--------------------------------------------------
+Back
+--------------------------------------------------
+Back
+--------------------------------------------------
+Change code name
+--------------------------------------------------
+Back
+--------------------------------------------------
+Conclusion YooMoney
+--------------------------------------------------
+Conclusion Cryptomus
+--------------------------------------------------
+Details not provided😢
+--------------------------------------------------
+🧾Your details🧾
 --------------------------------------------------
 ✋Greetings!✋
 What would you like to do?
@@ -87,9 +121,79 @@ Enter a new message that a person will see when the bot starts.
 --------------------------------------------------
 The welcome message has been changed!
 --------------------------------------------------
+Choose an action
+--------------------------------------------------
+File with data about PR people
+--------------------------------------------------
+What will we do next?
+--------------------------------------------------
+Enter PR person's id
+--------------------------------------------------
+Enter your PR person's ID
+--------------------------------------------------
+Enter ID
+--------------------------------------------------
+There was no such person in the database :(
+--------------------------------------------------
+The PR manager was successfully removed!
+--------------------------------------------------
+Enter ID
+--------------------------------------------------
+There is no such PR person in the database
+--------------------------------------------------
+What percentage do you want to give to the PR man?
+--------------------------------------------------
+Enter the percentage as a number
+--------------------------------------------------
+The PR specialist's percentage has been changed
+--------------------------------------------------
+Enter the PR person's ID or send their contact information
+--------------------------------------------------
+Enter numbers
+--------------------------------------------------
+Enter percentage
+--------------------------------------------------
+Enter PR percentage:
+--------------------------------------------------
+The PR person has been successfully added to the database!
+--------------------------------------------------
+This PR person is already in the database
+--------------------------------------------------
+You have been credited
+--------------------------------------------------
+Application
+--------------------------------------------------
+was paid
+--------------------------------------------------
+You have been credited
+--------------------------------------------------
+Choose an action
+--------------------------------------------------
+Below are all your links.
+--------------------------------------------------
+You don't have any codes yet
+--------------------------------------------------
+Your advertising link
+--------------------------------------------------
+Code information
+--------------------------------------------------
+Total number of people invited by this code
+--------------------------------------------------
+Your percentage
+--------------------------------------------------
+*Link to invite new people*
+--------------------------------------------------
+Enter the name of the code
+--------------------------------------------------
+The code name has been changed
+--------------------------------------------------
+You already have a newly created application. Wait a bit before creating a new one
+--------------------------------------------------
 Enter your donation amount in dollars
 --------------------------------------------------
-Enter the amount of your donation in rubles
+Enter the amount of your donation in rubles (minimum 1 ruble)
+--------------------------------------------------
+Select cryptocurrency
 --------------------------------------------------
 Enter the amount in numbers
 --------------------------------------------------
@@ -97,11 +201,36 @@ Amount to pay:
 --------------------------------------------------
 Payment service:
 --------------------------------------------------
-Time to pay: 3 hours
+The system will automatically count your payment and send a message about it
 --------------------------------------------------
-We are waiting for payment.
+If you encounter any errors, write to us
 --------------------------------------------------
-Application rejected
+Error! Enter an amount greater than one ruble again
 --------------------------------------------------
-You have successfully paid for your application.
+An error has occurred. You may have entered an incorrect donation amount.
+Try again
+--------------------------------------------------
+Error!
+Message from the payment system
+--------------------------------------------------
+Try again
+--------------------------------------------------
+Unique application identifier
+--------------------------------------------------
+Selected cryptocurrency
+--------------------------------------------------
+Enter quantity (enter dollar amount)
+--------------------------------------------------
+Your current balance
+--------------------------------------------------
+Enter your wallet
+--------------------------------------------------
+Enter a number greater than zero
+--------------------------------------------------
+Enter an amount not exceeding your balance
+--------------------------------------------------
+The withdrawal was completed successfully!
+--------------------------------------------------
+Failed to withdraw money.
+You may have entered too small an amount or entered the wallet incorrectly
 --------------------------------------------------

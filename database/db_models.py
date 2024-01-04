@@ -1,3 +1,5 @@
+import time
+import uuid
 from dataclasses import dataclass
 from typing import Optional
 from enum import Enum
@@ -5,10 +7,19 @@ from translate_texts.translate import translate_text as _
 
 
 @dataclass
+class InviteCode:
+    pr_id: int
+    code: str
+    name_of_code: str
+
+
+@dataclass
 class User:
     user_id: int
     username: str
-    lang: Optional['str']
+    lang: Optional[str]
+    pr_code: Optional[str]
+    balance: float
 
 
 @dataclass
@@ -19,6 +30,12 @@ class Channel:
     hello_text_content: str
     photo: Optional[str]
     video: Optional[str]
+
+
+@dataclass
+class PrUser:
+    user_id: int
+    percent: float
 
 
 @dataclass
@@ -51,6 +68,7 @@ class PaymentStatus(Enum):
 class PaymentType(Enum):
     YOOMONEY = 'YOOMONEY'
     PAYPAL = 'PAYPAL'
+    CRYPTO = 'CRYPTO'
 
 
 @dataclass
@@ -61,6 +79,17 @@ class Payment:
     status: str
     time: int
     payment_type: PaymentType
+
+    @staticmethod
+    def new_payment(user_id: int, channel_id: int, payment_type: PaymentType):
+        return Payment(
+            user_id,
+            channel_id,
+            str(uuid.uuid4()),
+            PaymentStatus.PENDING.value,
+            int(time.time()),
+            payment_type
+        )
 
 
 class LangChoice(Enum):

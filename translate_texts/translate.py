@@ -1,4 +1,4 @@
-import db_api
+from database import db_api
 import os
 
 DELIMITER = '-'*50

@@ -1,7 +1,3 @@
-Detalles no proporcionados😢
---------------------------------------------------
-🧾Tus datos🧾
---------------------------------------------------
 📕Ver canales disponibles📕
 --------------------------------------------------
 💵Cambiar detalles💵
@@ -9,6 +5,22 @@ Detalles no proporcionados😢
 📥Agregar un nuevo canal📥
 --------------------------------------------------
 🌇Cambiar idioma🌇
+--------------------------------------------------
+💰Finanzas💰
+--------------------------------------------------
+➕Gestión de Relaciones Públicas➕
+--------------------------------------------------
+oficina de relaciones públicas
+--------------------------------------------------
+➕Agregar una nueva persona de relaciones públicas➕
+--------------------------------------------------
+Consigue a toda la gente de relaciones públicas
+--------------------------------------------------
+Cambiar porcentaje de relaciones públicas
+--------------------------------------------------
+Eliminar persona de relaciones públicas
+--------------------------------------------------
+Atrás
 --------------------------------------------------
 Atrás
 --------------------------------------------------
@@ -30,13 +42,35 @@ Atrás
 --------------------------------------------------
 ⬅️ Volver
 --------------------------------------------------
+💵Criptomoneda💵
+--------------------------------------------------
 💰Pago💰
 --------------------------------------------------
-❓ Cheque pago ❓
+💰Pago💰
 --------------------------------------------------
-¡Tu pago ha sido confirmado!
+cheque pago
 --------------------------------------------------
-Aún no hemos recibido tu pago :(
+Enviar usuario
+--------------------------------------------------
+Ver mis enlaces publicitarios
+--------------------------------------------------
+Crear enlace publicitario
+--------------------------------------------------
+Atrás
+--------------------------------------------------
+Atrás
+--------------------------------------------------
+Cambiar nombre de código
+--------------------------------------------------
+Atrás
+--------------------------------------------------
+Conclusión YooMoney
+--------------------------------------------------
+Conclusión Criptomo
+--------------------------------------------------
+Detalles no proporcionados😢
+--------------------------------------------------
+🧾Tus datos🧾
 --------------------------------------------------
 ✋Saludos!✋
 Que te gustaría hacer?
@@ -87,9 +121,80 @@ Ingrese un nuevo mensaje que una persona verá cuando se inicie el bot.
 --------------------------------------------------
 ¡El mensaje de bienvenida ha sido cambiado!
 --------------------------------------------------
+Elige una acción
+--------------------------------------------------
+Fichero con datos sobre personas de relaciones públicas
+--------------------------------------------------
+¿Qué haremos después?
+--------------------------------------------------
+Ingrese la identificación de la persona de relaciones públicas
+--------------------------------------------------
+Ingrese el ID de su persona de relaciones públicas
+--------------------------------------------------
+Introduce el DNI
+--------------------------------------------------
+No existía tal persona en la base de datos.
+:(
+--------------------------------------------------
+¡El gerente de relaciones públicas fue eliminado con éxito!
+--------------------------------------------------
+Introduce el DNI
+--------------------------------------------------
+No existe tal persona de relaciones públicas en la base de datos.
+--------------------------------------------------
+¿Qué porcentaje le quieres dar al hombre de relaciones públicas?
+--------------------------------------------------
+Ingrese el porcentaje como un número
+--------------------------------------------------
+Se ha cambiado el porcentaje del especialista en relaciones públicas.
+--------------------------------------------------
+Ingrese el ID de la persona de relaciones públicas o envíe su información de contacto
+--------------------------------------------------
+Introducir números
+--------------------------------------------------
+Introduzca el porcentaje
+--------------------------------------------------
+Ingrese el porcentaje de relaciones públicas:
+--------------------------------------------------
+¡La persona de relaciones públicas ha sido agregada exitosamente a la base de datos!
+--------------------------------------------------
+Esta persona de relaciones públicas ya está en la base de datos.
+--------------------------------------------------
+has sido acreditado
+--------------------------------------------------
+Solicitud
+--------------------------------------------------
+fue pagado
+--------------------------------------------------
+has sido acreditado
+--------------------------------------------------
+Elige una acción
+--------------------------------------------------
+A continuación están todos sus enlaces.
+--------------------------------------------------
+Aún no tienes ningún código
+--------------------------------------------------
+Tu enlace publicitario
+--------------------------------------------------
+Información del código
+--------------------------------------------------
+Número total de personas invitadas por este código
+--------------------------------------------------
+Tu porcentaje
+--------------------------------------------------
+*Enlace para invitar a gente nueva*
+--------------------------------------------------
+Introduzca el nombre del código
+--------------------------------------------------
+El nombre del código ha sido cambiado.
+--------------------------------------------------
+Ya tienes una aplicación recién creada. Espera un poco antes de crear uno nuevo.
+--------------------------------------------------
 Ingrese el monto de su donación en dólares
 --------------------------------------------------
-Ingrese el monto de su donación en rublos
+Ingrese el monto de su donación en rublos (mínimo 1 rublo)
+--------------------------------------------------
+Seleccionar criptomoneda
 --------------------------------------------------
 Ingrese el monto en números
 --------------------------------------------------
@@ -97,11 +202,36 @@ Monto a pagar:
 --------------------------------------------------
 Servicio de pago:
 --------------------------------------------------
-Tiempo para pagar: 3 horas
+El sistema contará automáticamente su pago y enviará un mensaje al respecto.
 --------------------------------------------------
-Estamos esperando el pago.
+Si encuentra algún error, escríbanos
 --------------------------------------------------
-Solicitud rechazada
+¡Error! Ingrese nuevamente una cantidad mayor a un rublo
 --------------------------------------------------
-Ha pagado exitosamente su solicitud.
+Se ha producido un error. Es posible que haya ingresado un monto de donación incorrecto.
+Intentar otra vez
+--------------------------------------------------
+¡Error!
+Mensaje del sistema de pago.
+--------------------------------------------------
+Intentar otra vez
+--------------------------------------------------
+Identificador único de aplicación
+--------------------------------------------------
+Criptomoneda seleccionada
+--------------------------------------------------
+Ingrese la cantidad (ingrese el monto en dólares)
+--------------------------------------------------
+Su saldo actual
+--------------------------------------------------
+Ingresa tu billetera
+--------------------------------------------------
+Introduzca un número mayor que cero
+--------------------------------------------------
+Ingrese una cantidad que no exceda su saldo
+--------------------------------------------------
+¡El retiro se completó con éxito!
+--------------------------------------------------
+No se pudo retirar el dinero.
+Es posible que haya ingresado una cantidad demasiado pequeña o haya ingresado la billetera incorrectamente
 --------------------------------------------------

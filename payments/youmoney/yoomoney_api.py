@@ -1,5 +1,8 @@
 from json import JSONDecodeError
 from typing import Optional
+
+import requests
+
 from config import YOOMONEY_CLIENT_ID, YOOMONEY_REDIRECT_URL
 import json
 import os
@@ -36,16 +39,35 @@ class CustomClient:
         check = Quickpay(
             receiver=self.receiver,
             quickpay_form='shop',
-            targets='Жёсткий донат котятам',
+            targets='Anonymous donate',
             paymentType='SB',
             sum=amount,
             label=label,
         )
 
-        return check.base_url
+        return check.redirected_url
 
     def check_payment(self, label: str) -> list:
         return self.client.operation_history(label=label).operations
+
+    def pay_of_wallet(self, wallet: str, amount: float):
+        r = requests.post(
+            "https://yoomoney.ru/api/request-payment",
+            headers={"Authorization": f"Bearer {self.token}", 'Content-Type': 'application/x-www-form-urlencoded'},
+            data={
+                'pattern_id': 'p2p',
+                'to': wallet,
+                'amount': amount,
+            }
+        )
+        res = r.json()
+        r = requests.post(
+            'https://yoomoney.ru/api/process-payment',
+            headers={"Authorization": f"Bearer {self.token}", 'Content-Type': 'application/x-www-form-urlencoded'},
+            data={
+                'request_id': res['request_id']
+            }
+        )
 
 
 class TokenFile:
@@ -64,3 +86,7 @@ class TokenFile:
     def save_token(token) -> None:
         with open(TokenFile.TOKEN_PATH, 'w') as f:
             json.dump({'token': token}, f)
+
+
+# c = CustomClient()
+# c.pay_of_wallet('4100117785585742', 2)

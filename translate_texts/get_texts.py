@@ -2,7 +2,7 @@ import os
 import re
 
 files = [os.path.join('..\\', i) for i in os.listdir('..\\')]
-ignoring_dir = ['..\\venv']
+ignoring_dir = ['..\\.venv', '..\\bot10k\\.venv']
 
 py_files = []
 
